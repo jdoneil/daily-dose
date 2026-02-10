@@ -1,0 +1,366 @@
+{
+  "comics": [
+    {
+      "id": 1,
+      "caption": "The secret to a long marriage? Never both be hungry at the same time.",
+      "tags": ["relationships", "marriage", "modern-life"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Two people sitting at a dinner table",
+      "dateAdded": "2025-01-28",
+      "views": 1247,
+      "favorites": 89
+    },
+    {
+      "id": 2,
+      "caption": "I'm in a meeting, but my camera is off, so I'm technically on vacation.",
+      "tags": ["work", "modern-life", "technology"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person at desk with laptop",
+      "dateAdded": "2025-01-26",
+      "views": 2103,
+      "favorites": 156
+    },
+    {
+      "id": 3,
+      "caption": "I'm not addicted to my phone—we're just in a long-term relationship.",
+      "tags": ["modern-life", "technology", "relationships"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person looking at phone in bed",
+      "dateAdded": "2025-01-24",
+      "views": 1876,
+      "favorites": 134
+    },
+    {
+      "id": 4,
+      "caption": "I always forget—do I want to look suspicious or guilty?",
+      "tags": ["travel", "anxiety", "modern-life"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person at airport security checkpoint",
+      "dateAdded": "2025-01-22",
+      "views": 945,
+      "favorites": 67
+    },
+    {
+      "id": 5,
+      "caption": "I've made peace with death. It's life I'm still negotiating with.",
+      "tags": ["death", "existential", "philosophy"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person contemplating in armchair",
+      "dateAdded": "2025-01-20",
+      "views": 3421,
+      "favorites": 287
+    },
+    {
+      "id": 6,
+      "caption": "We should do this more often. We absolutely will not.",
+      "tags": ["relationships", "social", "honesty"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Two friends at a coffee shop",
+      "dateAdded": "2025-01-18",
+      "views": 1654,
+      "favorites": 112
+    },
+    {
+      "id": 7,
+      "caption": "My therapist says I need better boundaries. I told her that's none of her business.",
+      "tags": ["therapy", "humor", "irony"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person sitting on therapy couch",
+      "dateAdded": "2025-01-16",
+      "views": 2890,
+      "favorites": 245
+    },
+    {
+      "id": 8,
+      "caption": "I'm not procrastinating. I'm waiting for the panic to set in so I can work efficiently.",
+      "tags": ["work", "productivity", "anxiety"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person at desk surrounded by papers",
+      "dateAdded": "2025-01-14",
+      "views": 4102,
+      "favorites": 378
+    },
+    {
+      "id": 9,
+      "caption": "The algorithm knows me better than I know myself, and frankly, I'm offended.",
+      "tags": ["technology", "modern-life", "privacy"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person staring at phone screen",
+      "dateAdded": "2025-01-12",
+      "views": 2567,
+      "favorites": 198
+    },
+    {
+      "id": 10,
+      "caption": "I'm an introvert, which means I love humanity but can't stand people.",
+      "tags": ["personality", "social", "introvert"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person alone in crowded room",
+      "dateAdded": "2025-01-10",
+      "views": 3765,
+      "favorites": 312
+    },
+    {
+      "id": 11,
+      "caption": "My work-life balance is perfect: I'm equally unhappy in both areas.",
+      "tags": ["work", "life", "balance", "humor"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person juggling briefcase and home objects",
+      "dateAdded": "2025-01-08",
+      "views": 5234,
+      "favorites": 421
+    },
+    {
+      "id": 12,
+      "caption": "I'm not arguing, I'm just explaining why I'm right.",
+      "tags": ["relationships", "communication", "humor"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Two people in heated discussion",
+      "dateAdded": "2025-01-06",
+      "views": 1987,
+      "favorites": 156
+    },
+    {
+      "id": 13,
+      "caption": "The gym membership is my way of financially supporting a place I respect but never visit.",
+      "tags": ["health", "fitness", "procrastination"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person walking past gym entrance",
+      "dateAdded": "2025-01-04",
+      "views": 2876,
+      "favorites": 234
+    },
+    {
+      "id": 14,
+      "caption": "I don't have imposter syndrome. I'm genuinely unqualified and everyone's too polite to mention it.",
+      "tags": ["work", "insecurity", "humor"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person at office desk looking worried",
+      "dateAdded": "2025-01-02",
+      "views": 4321,
+      "favorites": 389
+    },
+    {
+      "id": 15,
+      "caption": "My carbon footprint is terrible, but my emotional footprint is even worse.",
+      "tags": ["environment", "existential", "guilt"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person looking at recycling bin",
+      "dateAdded": "2024-12-31",
+      "views": 1654,
+      "favorites": 98
+    },
+    {
+      "id": 16,
+      "caption": "I practice mindfulness by being fully present in my anxiety.",
+      "tags": ["mental-health", "mindfulness", "irony"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person meditating with worried expression",
+      "dateAdded": "2024-12-29",
+      "views": 3109,
+      "favorites": 267
+    },
+    {
+      "id": 17,
+      "caption": "Dating apps: where you swipe right on someone you'd avoid in real life.",
+      "tags": ["dating", "technology", "modern-life"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person swiping on phone",
+      "dateAdded": "2024-12-27",
+      "views": 2543,
+      "favorites": 201
+    },
+    {
+      "id": 18,
+      "caption": "I've been working from home so long, my commute is now from bed to couch.",
+      "tags": ["work", "remote-work", "pandemic"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person working on laptop on couch",
+      "dateAdded": "2024-12-25",
+      "views": 3876,
+      "favorites": 298
+    },
+    {
+      "id": 19,
+      "caption": "My retirement plan is to die at my desk and hope someone notices within the week.",
+      "tags": ["work", "retirement", "dark-humor"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Older person at cluttered desk",
+      "dateAdded": "2024-12-23",
+      "views": 2198,
+      "favorites": 176
+    },
+    {
+      "id": 20,
+      "caption": "I'm spiritual, not religious. Which means I'm judgmental without the structure.",
+      "tags": ["spirituality", "religion", "irony"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person doing yoga pose",
+      "dateAdded": "2024-12-21",
+      "views": 1789,
+      "favorites": 134
+    },
+    {
+      "id": 21,
+      "caption": "The great thing about social media is you can curate a version of yourself that even you don't recognize.",
+      "tags": ["social-media", "identity", "modern-life"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person taking selfie",
+      "dateAdded": "2024-12-19",
+      "views": 4567,
+      "favorites": 412
+    },
+    {
+      "id": 22,
+      "caption": "I'm not late, I operate on my own timezone, which coincidentally makes everyone else early.",
+      "tags": ["time-management", "humor", "denial"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person checking watch",
+      "dateAdded": "2024-12-17",
+      "views": 1432,
+      "favorites": 89
+    },
+    {
+      "id": 23,
+      "caption": "My New Year's resolution is to be more realistic about my New Year's resolutions.",
+      "tags": ["new-year", "goals", "self-awareness"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person writing in journal",
+      "dateAdded": "2024-12-15",
+      "views": 2901,
+      "favorites": 223
+    },
+    {
+      "id": 24,
+      "caption": "I support small businesses by abandoning shopping carts on their websites.",
+      "tags": ["shopping", "online", "guilt"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person on laptop looking guilty",
+      "dateAdded": "2024-12-13",
+      "views": 1876,
+      "favorites": 145
+    },
+    {
+      "id": 25,
+      "caption": "The key to happiness is low expectations. I'm still working on lowering mine enough.",
+      "tags": ["happiness", "expectations", "philosophy"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person shrugging with slight smile",
+      "dateAdded": "2024-12-11",
+      "views": 3654,
+      "favorites": 289
+    },
+    {
+      "id": 26,
+      "caption": "I'm an environmentalist who drives to the recycling center.",
+      "tags": ["environment", "irony", "contradictions"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person in car with recycling bags",
+      "dateAdded": "2024-12-09",
+      "views": 1543,
+      "favorites": 112
+    },
+    {
+      "id": 27,
+      "caption": "Networking is just making friends with an ulterior motive.",
+      "tags": ["work", "networking", "cynicism"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Two people shaking hands at event",
+      "dateAdded": "2024-12-07",
+      "views": 2234,
+      "favorites": 187
+    },
+    {
+      "id": 28,
+      "caption": "I told my plants I'd water them tomorrow. They know I'm lying.",
+      "tags": ["procrastination", "responsibility", "humor"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person looking at wilting plants",
+      "dateAdded": "2024-12-05",
+      "views": 2987,
+      "favorites": 245
+    },
+    {
+      "id": 29,
+      "caption": "My self-care routine is ignoring problems until they become someone else's.",
+      "tags": ["self-care", "avoidance", "humor"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person relaxing with eyes closed",
+      "dateAdded": "2024-12-03",
+      "views": 3421,
+      "favorites": 298
+    },
+    {
+      "id": 30,
+      "caption": "I'm fluent in three languages: English, sarcasm, and profanity.",
+      "tags": ["communication", "humor", "personality"],
+      "imageUrl": "https://ashermaxperlman.com/cartoons/Coffee.jpg",
+      "imageAlt": "Person in conversation with exaggerated gestures",
+      "dateAdded": "2024-12-01",
+      "views": 4123,
+      "favorites": 356
+    }
+  ],
+  "categories": [
+    {
+      "id": "all",
+      "name": "All Comics",
+      "description": "Browse the complete collection"
+    },
+    {
+      "id": "work",
+      "name": "Work",
+      "description": "Office life, careers, and professional struggles"
+    },
+    {
+      "id": "relationships",
+      "name": "Relationships",
+      "description": "Love, friendship, and human connections"
+    },
+    {
+      "id": "death",
+      "name": "Death",
+      "description": "Existential musings on mortality"
+    },
+    {
+      "id": "travel",
+      "name": "Travel",
+      "description": "Adventures and misadventures on the road"
+    },
+    {
+      "id": "modern-life",
+      "name": "Modern Life",
+      "description": "Contemporary living in the digital age"
+    },
+    {
+      "id": "existential",
+      "name": "Existential",
+      "description": "Deep thoughts and philosophical ponderings"
+    },
+    {
+      "id": "technology",
+      "name": "Technology",
+      "description": "Our complicated relationship with tech"
+    },
+    {
+      "id": "mental-health",
+      "name": "Mental Health",
+      "description": "Therapy, anxiety, and self-awareness"
+    },
+    {
+      "id": "social",
+      "name": "Social",
+      "description": "Society, social norms, and human behavior"
+    }
+  ],
+  "metadata": {
+    "totalComics": 30,
+    "lastUpdated": "2025-01-28",
+    "version": "1.0.0",
+    "attribution": {
+      "artist": "Asher Perlman",
+      "instagram": "@asherperlman",
+      "note": "This is a fan tribute project. All comics are copyrighted by Asher Perlman."
+    }
+  }
+}

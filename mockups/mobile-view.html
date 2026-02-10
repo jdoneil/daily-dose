@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Dose of Perlman - Mobile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #faf8f3;
+            --ink: #1a1a1a;
+            --ink-light: #4a4a4a;
+            --line: #e8e3d8;
+            --accent: #c4463a;
+            --accent-soft: #e8d5d1;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.6;
+            max-width: 430px;
+            margin: 0 auto;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        /* Mobile Header */
+        header {
+            border-bottom: 2px solid var(--ink);
+            background: var(--cream);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-top {
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .search-bar-mobile {
+            padding: 0 1rem 1rem;
+        }
+
+        .search-input-mobile {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--ink);
+            background: white;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+        }
+
+        .search-input-mobile:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px var(--accent-soft);
+        }
+
+        /* Quick Actions Bar */
+        .quick-actions {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: white;
+            border-bottom: 1px solid var(--line);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .quick-actions::-webkit-scrollbar {
+            display: none;
+        }
+
+        .quick-btn {
+            padding: 0.5rem 1rem;
+            border: 1.5px solid var(--line);
+            background: white;
+            white-space: nowrap;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .quick-btn.active {
+            background: var(--accent-soft);
+            border-color: var(--accent);
+        }
+
+        /* Mobile Feed */
+        main {
+            padding: 1rem;
+        }
+
+        .comic-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .feed-card {
+            background: white;
+            border: 2px solid var(--ink);
+        }
+
+        .card-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--ink-light);
+        }
+
+        .more-btn {
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 0.25rem;
+        }
+
+        .comic-image-mobile {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .comic-image-mobile::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0,0,0,0.02) 2px,
+                    rgba(0,0,0,0.02) 4px
+                );
+        }
+
+        .comic-placeholder-mobile {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1rem;
+            color: var(--ink-light);
+            text-align: center;
+            font-style: italic;
+            line-height: 1.5;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-content {
+            padding: 1rem;
+        }
+
+        .comic-caption-mobile {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .tag-row {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .tag-mobile {
+            padding: 0.25rem 0.6rem;
+            background: var(--accent-soft);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .card-actions {
+            display: flex;
+            justify-content: space-around;
+            padding: 0.75rem 1rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .action-icon-btn {
+            background: none;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            padding: 0.5rem;
+        }
+
+        .action-icon-btn:active {
+            transform: scale(0.9);
+        }
+
+        .action-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.7rem;
+            color: var(--ink-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .action-icon-btn.favorited {
+            color: var(--accent);
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            max-width: 430px;
+            margin: 0 auto;
+            background: white;
+            border-top: 2px solid var(--ink);
+            display: flex;
+            justify-content: space-around;
+            padding: 0.75rem 0;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-item:active {
+            transform: scale(0.95);
+        }
+
+        .nav-icon {
+            font-size: 1.5rem;
+        }
+
+        .nav-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.65rem;
+            color: var(--ink-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-item.active .nav-icon {
+            color: var(--accent);
+        }
+
+        .nav-item.active .nav-label {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Padding for bottom nav */
+        main {
+            padding-bottom: 5rem;
+        }
+
+        /* Pull to Refresh Indicator */
+        .refresh-indicator {
+            text-align: center;
+            padding: 1rem;
+            color: var(--ink-light);
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .refresh-indicator.active {
+            display: block;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Loading Animation */
+        .loading-more {
+            text-align: center;
+            padding: 2rem;
+            color: var(--ink-light);
+            font-size: 0.9rem;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid var(--line);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <h1 class="logo">Daily <span>Perlman</span></h1>
+            <button class="menu-btn">☰</button>
+        </div>
+        <div class="search-bar-mobile">
+            <input type="text" class="search-input-mobile" placeholder="Search comics...">
+        </div>
+    </header>
+
+    <div class="quick-actions">
+        <button class="quick-btn active">All</button>
+        <button class="quick-btn">Work</button>
+        <button class="quick-btn">Relationships</button>
+        <button class="quick-btn">Death</button>
+        <button class="quick-btn">Travel</button>
+        <button class="quick-btn">Modern Life</button>
+    </div>
+
+    <div class="refresh-indicator">
+        ↓ Pull to refresh
+    </div>
+
+    <main>
+        <div class="comic-feed">
+            <!-- Feed Card 1 -->
+            <div class="feed-card">
+                <div class="card-header">
+                    <div class="card-meta">Comic #147</div>
+                    <button class="more-btn">⋮</button>
+                </div>
+                <div class="comic-image-mobile">
+                    <div class="comic-placeholder-mobile">
+                        [Two people at a dinner table]<br><br>
+                        "The secret to a long marriage?<br>
+                        Never both be hungry at the same time."
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="comic-caption-mobile">"The secret to a long marriage? Never both be hungry at the same time."</p>
+                    <div class="tag-row">
+                        <span class="tag-mobile">Relationships</span>
+                        <span class="tag-mobile">Marriage</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="action-icon-btn favorited">
+                        <span>♥</span>
+                        <span class="action-label">Favorite</span>
+                    </button>
+                    <button class="action-icon-btn">
+                        <span>📤</span>
+                        <span class="action-label">Share</span>
+                    </button>
+                    <button class="action-icon-btn">
+                        <span>📥</span>
+                        <span class="action-label">Save</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Feed Card 2 -->
+            <div class="feed-card">
+                <div class="card-header">
+                    <div class="card-meta">Comic #93</div>
+                    <button class="more-btn">⋮</button>
+                </div>
+                <div class="comic-image-mobile">
+                    <div class="comic-placeholder-mobile">
+                        [Person at desk with laptop]<br><br>
+                        "I'm in a meeting, but my camera is off,<br>
+                        so I'm technically on vacation."
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="comic-caption-mobile">"I'm in a meeting, but my camera is off, so I'm technically on vacation."</p>
+                    <div class="tag-row">
+                        <span class="tag-mobile">Work</span>
+                        <span class="tag-mobile">Modern Life</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="action-icon-btn">
+                        <span>♡</span>
+                        <span class="action-label">Favorite</span>
+                    </button>
+                    <button class="action-icon-btn">
+                        <span>📤</span>
+                        <span class="action-label">Share</span>
+                    </button>
+                    <button class="action-icon-btn">
+                        <span>📥</span>
+                        <span class="action-label">Save</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Feed Card 3 -->
+            <div class="feed-card">
+                <div class="card-header">
+                    <div class="card-meta">Comic #214</div>
+                    <button class="more-btn">⋮</button>
+                </div>
+                <div class="comic-image-mobile">
+                    <div class="comic-placeholder-mobile">
+                        [Person contemplating in chair]<br><br>
+                        "I've made peace with death.<br>
+                        It's life I'm still negotiating with."
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="comic-caption-mobile">"I've made peace with death. It's life I'm still negotiating with."</p>
+                    <div class="tag-row">
+                        <span class="tag-mobile">Death</span>
+                        <span class="tag-mobile">Existential</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="action-icon-btn">
+                        <span>♡</span>
+                        <span class="action-label">Favorite</span>
+                    </button>
+                    <button class="action-icon-btn">
+                        <span>📤</span>
+                        <span class="action-label">Share</span>
+                    </button>
+                    <button class="action-icon-btn">
+                        <span>📥</span>
+                        <span class="action-label">Save</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="loading-more">
+            <div class="loading-spinner"></div>
+            <p style="margin-top: 1rem;">Loading more comics...</p>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <button class="nav-item active">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-label">Home</span>
+        </button>
+        <button class="nav-item">
+            <span class="nav-icon">🔍</span>
+            <span class="nav-label">Search</span>
+        </button>
+        <button class="nav-item">
+            <span class="nav-icon">🎲</span>
+            <span class="nav-label">Random</span>
+        </button>
+        <button class="nav-item">
+            <span class="nav-icon">♥</span>
+            <span class="nav-label">Favorites</span>
+        </button>
+    </nav>
+</body>
+</html>

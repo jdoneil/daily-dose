@@ -1,14 +1,42 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=DM+Sans:wght@400;500;700&display=swap");
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@theme {
+  --color-cream: #faf8f3;
+  --color-ink: #1a1a1a;
+  --color-ink-light: #4a4a4a;
+  --color-line: #e8e3d8;
+  --color-accent: #c4463a;
+  --color-accent-soft: #e8d5d1;
+  --color-accent-warm: #d95b50;
+  --color-paper: #ffffff;
 
+  --font-sans:
+    "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif:
+    "Crimson Pro", ui-serif, Georgia, Cambria, "Times New Roman", serif;
+}
+
+#root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --color-cream: #faf8f3;
+  --color-ink: #1a1a1a;
+  --color-ink-light: #4a4a4a;
+  --color-line: #e8e3d8;
+  --color-accent: #c4463a;
+  --color-accent-soft: #e8d5d1;
+  --color-accent-warm: #d95b50;
+  --color-paper: #ffffff;
+}
+
+html {
+  background-color: var(--color-cream);
+}
+
+main {
+  max-width: 1400px;
+  margin: 0 auto;
 }

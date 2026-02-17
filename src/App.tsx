@@ -9,13 +9,11 @@ function App() {
     <>
       <BrowserRouter>
         <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={<Gallery />} />
-            <Route path="/comic/:id" element={<Details />} />
-            <Route path="/favorites" element={<Favorites />} />
-          </Routes>
-        </main>
+        <Routes>
+          <Route path="/" element={<Gallery />} />
+          <Route path="/comic/:id" element={<Details />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </Routes>
         <footer />
       </BrowserRouter>
     </>

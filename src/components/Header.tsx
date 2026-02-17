@@ -4,7 +4,7 @@ export const Header: React.FC = () => {
   return (
     <header className="sticky border-b-2">
       {/*Desktop Header*/}
-      <div className="hidden md:flex flex-row items-center justify-between px-12 py-8">
+      <div className="hidden md:flex flex-row items-center justify-between px-12 py-8 max-w-350 mx-auto">
         <h1 className="text-3xl font-bold font-serif">
           Daily <span className="text-accent">Perlman</span>
         </h1>

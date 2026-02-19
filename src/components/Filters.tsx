@@ -1,26 +1,19 @@
-const filters = [
-  "All",
-  "Work",
-  "Relationships",
-  "Death",
-  "Travel",
-  "Modern Life",
-];
-
 type FiltersProps = {
   selectedFilters: string[];
   setSelectedFilters: (filter: string) => void;
+  allFilters: string[];
 };
 
 export const Filters: React.FC<FiltersProps> = ({
   selectedFilters,
   setSelectedFilters,
+  allFilters,
 }) => {
   return (
     <div className="bg-paper border-b border-gray-300 p-4">
       <div className="scrollbar-hidden mx-auto flex max-w-350 items-center overflow-auto">
         <span className="mr-2 hidden text-sm uppercase sm:block"> Filter:</span>
-        {filters.map((filter) => {
+        {allFilters.map((filter) => {
           return (
             <div
               className={`mr-4 cursor-pointer border px-4 py-2 text-sm whitespace-nowrap md:text-base ${

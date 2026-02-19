@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Filters } from "../components/Filters";
 import comicData from "../data/comics-data.json";
 
@@ -39,6 +39,7 @@ export default function Gallery() {
   const [comics, setComics] = useState<Comic[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedFilters, setSelectedFilters] = useState(["All"]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -47,12 +48,26 @@ export default function Gallery() {
     }, 1000);
   }, []);
 
+  const setTagFilters = useCallback((filter: string) => {
+    setSelectedFilters((prev) => {
+      const updated = prev.includes(filter)
+        ? prev.filter((f) => f !== filter)
+        : prev[0] === "All"
+          ? [filter]
+          : [...prev, filter];
+      return updated.length === 0 ? ["All"] : updated;
+    });
+  }, []);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
 
   return (
     <>
-      <Filters />
+      <Filters
+        selectedFilters={selectedFilters}
+        setSelectedFilters={setTagFilters}
+      />
       <main className="grid grid-cols-1 gap-4 px-4 py-4 sm:grid-cols-2 lg:grid-cols-3">
         {comics.map((comic) => (
           <div className="comic-card border-ink flex cursor-pointer flex-col border-2 bg-white transition-all duration-300">

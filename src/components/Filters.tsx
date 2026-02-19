@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const filters = [
   "All",
   "Work",
@@ -9,23 +7,29 @@ const filters = [
   "Modern Life",
 ];
 
-export const Filters: React.FC = () => {
-  const [selected, setSelected] = useState("All");
+type FiltersProps = {
+  selectedFilters: string[];
+  setSelectedFilters: (filter: string) => void;
+};
 
+export const Filters: React.FC<FiltersProps> = ({
+  selectedFilters,
+  setSelectedFilters,
+}) => {
   return (
-    <div className="bg-paper border-gray-300 border-b p-4 ">
-      <div className="max-w-350 mx-auto flex overflow-auto scrollbar-hidden items-center">
-        <span className="hidden sm:block text-sm mr-2 uppercase"> Filter:</span>
+    <div className="bg-paper border-b border-gray-300 p-4">
+      <div className="scrollbar-hidden mx-auto flex max-w-350 items-center overflow-auto">
+        <span className="mr-2 hidden text-sm uppercase sm:block"> Filter:</span>
         {filters.map((filter) => {
           return (
             <div
-              className={`border py-2 px-4 whitespace-nowrap mr-4 text-sm md:text-base ${
-                selected === filter
+              className={`mr-4 cursor-pointer border px-4 py-2 text-sm whitespace-nowrap md:text-base ${
+                selectedFilters.includes(filter)
                   ? "border-accent bg-red-200"
                   : "border-gray-300"
               }`}
               key={filter}
-              onClick={() => setSelected(filter)}
+              onClick={() => setSelectedFilters(filter)}
             >
               <span>{filter}</span>
             </div>

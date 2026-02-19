@@ -2,6 +2,28 @@ import { useEffect, useState } from "react";
 import { Filters } from "../components/Filters";
 import comicData from "../data/comics-data.json";
 
+<style>{`
+  .comic-card {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .comic-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 8px 8px 0 #c4463a;
+  }
+`}</style>;
+
 export type Comic = {
   id: number;
   caption: string;
@@ -31,23 +53,23 @@ export default function Gallery() {
   return (
     <>
       <Filters />
-      <main className="py-4 px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <main className="grid grid-cols-1 gap-4 px-4 py-4 sm:grid-cols-2 lg:grid-cols-3">
         {comics.map((comic) => (
-          <div className="flex flex-col border-2 border-ink">
+          <div className="comic-card border-ink flex cursor-pointer flex-col border-2 bg-white transition-all duration-300">
             <img
-              className="border-b-2 border-ink"
+              className="border-ink border-b-2"
               src={comic.imageUrl}
               alt={comic.imageAlt}
             ></img>
-            <div className="bg-paper px-2 py-2">
-              <p>{comic.caption}</p>
-              <div className="flex items-center justify-between my-4">
-                <div>
+            <div className="bg-paper flex flex-1 flex-col px-2 py-2">
+              <p className="flex-1">{comic.caption}</p>
+              <div className="my-4 flex items-center justify-between text-xs uppercase">
+                <div className="flex max-w-[80%] gap-2 overflow-clip">
                   {comic.tags?.map((tag) => (
-                    <span className="bg-accent-soft p-2">{tag}</span>
+                    <span className="bg-accent-soft text-ink p-2">{tag}</span>
                   ))}
                 </div>
-                <p>❤️</p>
+                <p className="mr-2">❤️</p>
               </div>
             </div>
           </div>

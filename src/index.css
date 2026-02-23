@@ -40,3 +40,27 @@ main {
   max-width: 1400px;
   margin: 0 auto;
 }
+
+/**
+TODO MOVE THESE STYLES
+ */
+
+.comic-card {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.comic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 8px 8px 0 var(--color-accent-soft);
+}

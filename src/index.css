@@ -36,11 +36,6 @@ html {
   background-color: var(--color-cream);
 }
 
-main {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
 /**
 TODO MOVE THESE STYLES
  */

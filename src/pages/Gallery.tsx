@@ -78,7 +78,7 @@ export default function Gallery({ searchQuery }: GalleryProps) {
         setSelectedFilters={setTagFilters}
         allFilters={allFilters}
       />
-      <main className="grid grid-cols-1 gap-4 px-4 py-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto grid min-h-screen max-w-360 grid-cols-1 gap-4 px-4 py-4 sm:grid-cols-2 lg:grid-cols-3">
         {comics
           .filter(
             (comic) =>
@@ -114,7 +114,7 @@ export default function Gallery({ searchQuery }: GalleryProps) {
               </div>
             </div>
           ))}
-      </main>
+      </div>
     </>
   );
 }

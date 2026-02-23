@@ -4,6 +4,7 @@ import Gallery from "./pages/Gallery";
 import Details from "./pages/Details";
 import Favorites from "./pages/Favorites";
 import Header from "./components/Header";
+import { Footer } from "./components/Footer";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -11,12 +12,14 @@ function App() {
     <>
       <BrowserRouter>
         <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        <Routes>
-          <Route path="/" element={<Gallery searchQuery={searchQuery} />} />
-          <Route path="/comic/:id" element={<Details />} />
-          <Route path="/favorites" element={<Favorites />} />
-        </Routes>
-        <footer />
+        <main className="min-h-screen">
+          <Routes>
+            <Route path="/" element={<Gallery searchQuery={searchQuery} />} />
+            <Route path="/comic/:id" element={<Details />} />
+            <Route path="/favorites" element={<Favorites />} />
+          </Routes>
+        </main>
+        <Footer />
       </BrowserRouter>
     </>
   );

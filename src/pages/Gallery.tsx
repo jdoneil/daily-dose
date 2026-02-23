@@ -35,7 +35,11 @@ export type Comic = {
   favorites: number;
 };
 
-export default function Gallery() {
+type GalleryProps = {
+  searchQuery: string;
+};
+
+export default function Gallery({ searchQuery }: GalleryProps) {
   const [comics, setComics] = useState<Comic[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -78,8 +82,12 @@ export default function Gallery() {
         {comics
           .filter(
             (comic) =>
-              selectedFilters.includes("All") ||
-              comic.tags.some((tag) => selectedFilters.includes(tag)),
+              (selectedFilters.includes("All") ||
+                comic.tags.some((tag) => selectedFilters.includes(tag))) &&
+              (searchQuery === "" ||
+                comic.caption
+                  .toLowerCase()
+                  .includes(searchQuery.toLowerCase())),
           )
           .map((comic) => (
             <div

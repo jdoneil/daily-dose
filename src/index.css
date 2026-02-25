@@ -59,3 +59,13 @@ TODO MOVE THESE STYLES
   transform: translateY(-4px);
   box-shadow: 8px 8px 0 var(--color-accent-soft);
 }
+
+.favorites-hero::before {
+  content: "♥";
+  position: absolute;
+  font-size: 20rem;
+  opacity: 0.1;
+  right: -2rem;
+  top: -4rem;
+  transform: rotate(-15deg);
+}

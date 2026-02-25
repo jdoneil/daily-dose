@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import { Filters } from "../components/Filters";
-import comicData from "../data/comics-data.json";
+import { Filters } from "./Filters";
+import comicData from "../../data/comics-data.json";
 
 <style>{`
   .comic-card {

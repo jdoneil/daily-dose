@@ -44,6 +44,10 @@ export default function Gallery({ searchQuery }: GalleryProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedFilters, setSelectedFilters] = useState(["All"]);
+  const [favoriteIds, setFavoriteIds] = useState<number[]>(() => {
+    const stored = localStorage.getItem("favorites");
+    return stored ? JSON.parse(stored) : [];
+  });
 
   useEffect(() => {
     setTimeout(() => {
@@ -67,6 +71,16 @@ export default function Gallery({ searchQuery }: GalleryProps) {
       return updated.length === 0 ? ["All"] : updated;
     });
   }, []);
+
+  const toggleFavorite = (id: number) => {
+    setFavoriteIds((prev) => {
+      const next = prev.includes(id)
+        ? prev.filter((favoriteId) => favoriteId !== id)
+        : [...prev, id];
+      localStorage.setItem("favorites", JSON.stringify(next));
+      return next;
+    });
+  };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
@@ -109,7 +123,12 @@ export default function Gallery({ searchQuery }: GalleryProps) {
                       </span>
                     ))}
                   </div>
-                  <p className="mr-2">❤️</p>
+                  <button
+                    className="mr-2 cursor-pointer text-xl transition-transform duration-200 hover:scale-125"
+                    onClick={() => toggleFavorite(comic.id)}
+                  >
+                    {favoriteIds.includes(comic.id) ? "❤️" : "🤍"}
+                  </button>
                 </div>
               </div>
             </div>

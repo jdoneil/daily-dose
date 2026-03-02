@@ -2,28 +2,6 @@ import { useCallback, useEffect, useState } from "react";
 import { Filters } from "./Filters";
 import comicData from "../../data/comics-data.json";
 
-<style>{`
-  .comic-card {
-    animation: slideUp 0.5s ease-out forwards;
-  }
-  
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .comic-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 8px 8px 0 #c4463a;
-  }
-`}</style>;
-
 export type Comic = {
   id: number;
   caption: string;
@@ -92,7 +70,7 @@ export default function Gallery({ searchQuery }: GalleryProps) {
         setSelectedFilters={setTagFilters}
         allFilters={allFilters}
       />
-      <div className="mx-auto grid min-h-screen max-w-360 grid-cols-1 gap-4 px-4 py-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto grid max-w-360 grid-cols-1 gap-4 px-4 py-4 sm:grid-cols-2 lg:grid-cols-3">
         {comics
           .filter(
             (comic) =>

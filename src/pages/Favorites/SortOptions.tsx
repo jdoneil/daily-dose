@@ -25,13 +25,13 @@ export const SortOptions: React.FC<SortOptionsProps> = ({ onSortChange }) => {
           </button>
         </div>
         <div className="flex items-center">
-          <button className="mr-2 border border-black px-4 py-2">
+          <button className="hover:bg-accent-soft mr-2 cursor-pointer border border-black px-4 py-2">
             📥 Export All
           </button>
-          <button className="mr-2 border border-black px-4 py-2">
+          <button className="hover:bg-accent-soft mr-2 cursor-pointer border border-black px-4 py-2">
             📥 Share Collection
           </button>
-          <button className="mr-2 border border-black px-4 py-2">
+          <button className="hover:bg-accent-soft mr-2 cursor-pointer border border-black px-4 py-2">
             🗑️ Remove Selected
           </button>
         </div>

@@ -66,6 +66,16 @@ const Favorites: React.FC = () => {
     setSelected([]);
   }, [favoriteIds, selected]);
 
+  const exportSelected = useCallback(() => {
+    //TODO what is the intended functionality here?
+    const selectedComics = sortedComics.filter((comic) =>
+      selected.includes(comic.id),
+    );
+    selectedComics.forEach((comic) => {
+      console.log(comic.imageUrl);
+    });
+  }, [sortedComics, selected]);
+
   if (loading) return <h1>Loading Favorites...</h1>;
 
   return (
@@ -75,6 +85,7 @@ const Favorites: React.FC = () => {
         onSortChange={setSort}
         selectedSort={sort}
         removeSelected={removeSelected}
+        exportSelected={exportSelected}
       />
       <div className="mx-auto grid max-w-360 grid-cols-1 gap-4 px-4 py-4 sm:grid-cols-2 lg:grid-cols-3">
         {sortedComics.map((comic) => (

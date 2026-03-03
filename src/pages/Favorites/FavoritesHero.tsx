@@ -1,7 +1,5 @@
 import React from "react";
 
-// interface FavoritesHeroProps {}
-
 const FavoritesHero: React.FC = () => {
   return (
     <div className="bg-accent favorites-hero w-full px-32 py-16 text-white">

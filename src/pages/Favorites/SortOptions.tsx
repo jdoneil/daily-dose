@@ -4,6 +4,7 @@ interface SortOptionsProps {
   onSortChange?: (sortBy: string) => void;
   selectedSort: string;
   removeSelected: () => void;
+  exportSelected: () => void;
 }
 
 const sortOptions = ["Most Recent", "Most Viewed", "Alphabetical"];
@@ -12,6 +13,7 @@ export const SortOptions: React.FC<SortOptionsProps> = ({
   onSortChange,
   selectedSort,
   removeSelected,
+  exportSelected,
 }) => {
   const handleChange = (sort: string) => {
     onSortChange?.(sort);
@@ -34,8 +36,11 @@ export const SortOptions: React.FC<SortOptionsProps> = ({
           })}
         </div>
         <div className="flex items-center">
-          <button className="hover:bg-accent-soft mr-2 cursor-pointer border border-black px-4 py-2">
-            📥 Export All
+          <button
+            className="hover:bg-accent-soft mr-2 cursor-pointer border border-black px-4 py-2"
+            onClick={() => exportSelected()}
+          >
+            📥 Export Selected
           </button>
           <button
             className="hover:bg-accent-soft mr-2 cursor-pointer border border-black px-4 py-2"

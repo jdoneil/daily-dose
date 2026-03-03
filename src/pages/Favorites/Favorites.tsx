@@ -80,7 +80,7 @@ const Favorites: React.FC = () => {
 
   return (
     <>
-      <FavoritesHero />
+      <FavoritesHero favorites={comics} />
       <SortOptions
         onSortChange={setSort}
         selectedSort={sort}

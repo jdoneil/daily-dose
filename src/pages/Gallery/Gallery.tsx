@@ -56,6 +56,11 @@ export default function Gallery({ searchQuery }: GalleryProps) {
         ? prev.filter((favoriteId) => favoriteId !== id)
         : [...prev, id];
       localStorage.setItem("favorites", JSON.stringify(next));
+
+      if (!prev.includes(id)) {
+        localStorage.setItem("lastAdded", new Date().toISOString());
+      }
+
       return next;
     });
   };

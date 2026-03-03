@@ -6,6 +6,12 @@ import Favorites from "./pages/Favorites/Favorites";
 import Header from "./components/Header";
 import { Footer } from "./components/Footer";
 
+//TODO
+// Add Skeleton
+// Search for duped logic and use hooks
+// Add animations
+// Add backend?
+
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
   return (

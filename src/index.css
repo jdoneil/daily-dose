@@ -63,9 +63,10 @@ TODO MOVE THESE STYLES
 .favorites-hero::before {
   content: "♥";
   position: absolute;
-  font-size: 15rem;
+  font-size: 20rem;
   opacity: 0.1;
   right: 6rem;
-  top: 3rem;
+  top: 1rem;
   transform: rotate(-15deg);
+  pointer-events: none;
 }

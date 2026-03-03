@@ -10,7 +10,8 @@ import { Footer } from "./components/Footer";
 // Add Skeleton
 // Search for duped logic and use hooks
 // Add animations
-// Add backend?
+// Add backend
+// Should search exist on routes other than main?
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");

@@ -7,6 +7,7 @@ import type { Comic } from "../Gallery/Gallery";
 const Favorites: React.FC = () => {
   const [comics, setComics] = useState<Comic[]>([]);
   const [loading, setLoading] = useState(true);
+  const [sort, setSort] = useState("Most Recent");
   const [favoriteIds, setFavoriteIds] = useState<number[]>(() => {
     const stored = localStorage.getItem("favorites");
     return stored ? JSON.parse(stored) : [];
@@ -33,14 +34,29 @@ const Favorites: React.FC = () => {
     });
   };
 
+  const sortedComics = [...comics].sort((a, b) => {
+    switch (sort) {
+      case "Most Recent":
+        return (
+          new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime()
+        );
+      case "Most Viewed":
+        return b.views - a.views;
+      case "Alphabetical":
+        return a.caption.localeCompare(b.caption);
+      default:
+        return 0;
+    }
+  });
+
   if (loading) return <h1>Loading Favorites...</h1>;
 
   return (
     <>
       <FavoritesHero />
-      <SortOptions />
+      <SortOptions onSortChange={setSort} selectedSort={sort} />
       <div className="mx-auto grid max-w-360 grid-cols-1 gap-4 px-4 py-4 sm:grid-cols-2 lg:grid-cols-3">
-        {comics.map((comic) => (
+        {sortedComics.map((comic) => (
           <div
             key={comic.id}
             className="comic-card border-ink flex cursor-pointer flex-col border-2 bg-white transition-all duration-300"

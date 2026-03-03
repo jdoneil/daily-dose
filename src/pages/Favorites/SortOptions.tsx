@@ -3,6 +3,7 @@ import React from "react";
 interface SortOptionsProps {
   onSortChange?: (sortBy: string) => void;
   selectedSort: string;
+  removeSelected: () => void;
 }
 
 const sortOptions = ["Most Recent", "Most Viewed", "Alphabetical"];
@@ -10,6 +11,7 @@ const sortOptions = ["Most Recent", "Most Viewed", "Alphabetical"];
 export const SortOptions: React.FC<SortOptionsProps> = ({
   onSortChange,
   selectedSort,
+  removeSelected,
 }) => {
   const handleChange = (sort: string) => {
     onSortChange?.(sort);
@@ -35,10 +37,10 @@ export const SortOptions: React.FC<SortOptionsProps> = ({
           <button className="hover:bg-accent-soft mr-2 cursor-pointer border border-black px-4 py-2">
             📥 Export All
           </button>
-          <button className="hover:bg-accent-soft mr-2 cursor-pointer border border-black px-4 py-2">
-            📥 Share Collection
-          </button>
-          <button className="hover:bg-accent-soft mr-2 cursor-pointer border border-black px-4 py-2">
+          <button
+            className="hover:bg-accent-soft mr-2 cursor-pointer border border-black px-4 py-2"
+            onClick={() => removeSelected()}
+          >
             🗑️ Remove Selected
           </button>
         </div>

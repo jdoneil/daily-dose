@@ -7,7 +7,7 @@ const FavoritesHero: React.FC = () => {
     <div className="bg-accent favorites-hero w-full px-32 py-16 text-white">
       <div className="mx-auto max-w-350">
         <h1 className="font-serif text-4xl font-bold">My Favorites</h1>
-        <p className="my-8">
+        <p className="my-8 font-bold">
           Your personal collection of beloved Perlman wisom
         </p>
         <div className="flex gap-8">

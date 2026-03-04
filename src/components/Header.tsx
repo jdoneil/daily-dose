@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 type HeaderProps = {
   searchQuery: string;
@@ -9,13 +10,21 @@ export const Header: React.FC<HeaderProps> = ({
   searchQuery,
   setSearchQuery,
 }) => {
+  const [randomComicLink, setRandomComicLink] = useState<string>("");
+
+  useEffect(() => {
+    setRandomComicLink(`/comic/${Math.floor(Math.random() * 30) + 1}`);
+  }, []);
+
   return (
     <header className="sticky border-b-2">
       {/*Desktop Header*/}
-      <div className="mx-auto hidden max-w-350 flex-row items-center justify-between px-12 py-8 md:flex">
-        <h1 className="font-serif text-3xl font-bold">
-          Daily <span className="text-accent">Perlman</span>
-        </h1>
+      <div className="mx-auto hidden max-w-350 flex-row items-center justify-between py-8 md:flex">
+        <Link to="/">
+          <h1 className="cursor-pointer font-serif text-3xl font-bold">
+            Daily <span className="text-accent">Perlman</span>
+          </h1>
+        </Link>
         <div className="flex items-center">
           <div className="search-box relative">
             <input
@@ -29,12 +38,18 @@ export const Header: React.FC<HeaderProps> = ({
               🔍
             </span>
           </div>
-          <a className="text-paper bg-ink mr-4 hidden px-6 py-3 font-bold whitespace-nowrap sm:inline-block">
+          <Link
+            to={"/favorites"}
+            className="text-paper bg-ink mr-4 hidden px-6 py-3 font-bold whitespace-nowrap sm:inline-block"
+          >
             ⭐ Favorites
-          </a>
-          <a className="text-paper bg-ink hidden px-6 py-3 font-bold whitespace-nowrap sm:inline-block">
+          </Link>
+          <Link
+            to={randomComicLink}
+            className="text-paper bg-ink hidden px-6 py-3 font-bold whitespace-nowrap sm:inline-block"
+          >
             🎲 Random
-          </a>
+          </Link>
         </div>
       </div>
       {/*Mobile Header*/}

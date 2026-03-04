@@ -36,11 +36,6 @@ html {
   background-color: var(--color-cream);
 }
 
-main {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
 /**
 TODO MOVE THESE STYLES
  */
@@ -63,4 +58,15 @@ TODO MOVE THESE STYLES
 .comic-card:hover {
   transform: translateY(-4px);
   box-shadow: 8px 8px 0 var(--color-accent-soft);
+}
+
+.favorites-hero::before {
+  content: "♥";
+  position: absolute;
+  font-size: 20rem;
+  opacity: 0.1;
+  right: 6rem;
+  top: 1rem;
+  transform: rotate(-15deg);
+  pointer-events: none;
 }

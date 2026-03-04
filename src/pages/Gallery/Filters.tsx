@@ -10,8 +10,8 @@ export const Filters: React.FC<FiltersProps> = ({
   allFilters,
 }) => {
   return (
-    <div className="bg-paper border-b border-gray-300 p-4">
-      <div className="scrollbar-hidden mx-auto flex max-w-350 items-center overflow-auto">
+    <div className="bg-paper w-full border-b border-gray-300 p-4">
+      <div className="scrollbar-hidden mx-auto flex max-w-360 items-center overflow-auto">
         <span className="mr-2 hidden text-sm uppercase sm:block"> Filter:</span>
         {allFilters.map((filter) => {
           return (

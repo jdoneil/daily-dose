@@ -12,6 +12,7 @@ import { Footer } from "./components/Footer";
 // Add animations
 // Add backend
 // Should search exist on routes other than main?
+// infinite scroll?
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");

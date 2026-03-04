@@ -16,7 +16,7 @@ const FavoritesHero: React.FC<HeroProps> = ({ favorites }: HeroProps) => {
     : "—";
 
   return (
-    <div className="bg-accent favorites-hero w-full px-32 py-16 text-white">
+    <div className="bg-accent favorites-hero w-full px-8 py-16 text-white md:px-32">
       <div className="mx-auto max-w-350">
         <h1 className="font-serif text-4xl font-bold">My Favorites</h1>
         <p className="my-8 font-bold">
@@ -24,19 +24,19 @@ const FavoritesHero: React.FC<HeroProps> = ({ favorites }: HeroProps) => {
         </p>
         <div className="flex gap-8">
           <div className="flex flex-col">
-            <span className="font-serif text-3xl font-bold">
+            <span className="font-serif text-4xl font-bold">
               {favorites.length}
             </span>
             <span className="mt-2">Comics Saved</span>
           </div>
           <div className="flex flex-col">
-            <span className="font-serif text-3xl font-bold">
+            <span className="font-serif text-4xl font-bold">
               {categories.length}
             </span>
             <span className="mt-2">Categories</span>
           </div>
           <div className="flex flex-col">
-            <span className="font-serif text-3xl font-bold">
+            <span className="font-serif text-4xl font-bold">
               {formattedDate}
             </span>
             <span className="mt-2">Last Added</span>

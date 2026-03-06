@@ -21,10 +21,10 @@ const Details: React.FC = () => {
   if (comic)
     return (
       <div className="mx-auto grid max-w-300 grid-cols-1 gap-12 px-4 py-4 sm:grid-cols-3">
-        <div className="sm:col-span-2">
+        <div className="flex flex-col sm:col-span-2">
           <div
             key={comic.id}
-            className="comic-card border-ink flex cursor-pointer flex-col border-2 bg-white p-6 transition-all duration-300"
+            className="comic-card border-ink flex flex-1 cursor-pointer flex-col border-2 bg-white p-6 transition-all duration-300"
           >
             <img
               className="border-ink border-b-2"
@@ -32,8 +32,8 @@ const Details: React.FC = () => {
               alt={comic.imageAlt}
             ></img>
             <div className="bg-paper flex flex-1 flex-col px-2 py-2">
-              <p className="flex-1">{comic.caption}</p>
-              <div className="my-4 flex items-center justify-between text-xs uppercase">
+              <p className="border-b border-gray-300 py-6">{comic.caption}</p>
+              <div className="my-4 flex items-center text-xs uppercase">
                 <div className="flex max-w-[80%] gap-2 overflow-clip">
                   {comic.tags?.map((tag) => (
                     <span key={tag} className="bg-accent-soft text-ink p-2">

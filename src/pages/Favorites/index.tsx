@@ -4,16 +4,14 @@ import { SortOptions } from "./SortOptions";
 import comicData from "../../data/comics-data.json";
 import type { Comic } from "../Gallery";
 import FavoritesCard from "./FavoritesCard";
+import { useFavorites } from "../../hooks/useFavorites";
 
 const Favorites: React.FC = () => {
   const [comics, setComics] = useState<Comic[]>([]);
   const [loading, setLoading] = useState(true);
   const [sort, setSort] = useState("Most Recent");
   const [selected, setSelected] = useState<number[]>([]);
-  const [favoriteIds, setFavoriteIds] = useState<number[]>(() => {
-    const stored = localStorage.getItem("favorites");
-    return stored ? JSON.parse(stored) : [];
-  });
+  const { favoriteIds, toggleFavorite, removeFavorites } = useFavorites();
 
   useEffect(() => {
     setTimeout(() => {
@@ -25,16 +23,6 @@ const Favorites: React.FC = () => {
       }
     }, 1000);
   }, [favoriteIds]);
-
-  const toggleFavorite = useCallback((id: number) => {
-    setFavoriteIds((prev) => {
-      const next = prev.includes(id)
-        ? prev.filter((favoriteId) => favoriteId !== id)
-        : [...prev, id];
-      localStorage.setItem("favorites", JSON.stringify(next));
-      return next;
-    });
-  }, []);
 
   const sortedComics = [...comics].sort((a, b) => {
     switch (sort) {
@@ -60,11 +48,9 @@ const Favorites: React.FC = () => {
   }, []);
 
   const removeSelected = useCallback(() => {
-    const updated = favoriteIds.filter((id) => !selected.includes(id));
-    setFavoriteIds(updated);
-    localStorage.setItem("favorites", JSON.stringify(updated));
+    removeFavorites(selected);
     setSelected([]);
-  }, [favoriteIds, selected]);
+  }, [removeFavorites, selected]);
 
   const exportSelected = useCallback(() => {
     //TODO what is the intended functionality here?

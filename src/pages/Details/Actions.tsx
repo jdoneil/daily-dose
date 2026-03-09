@@ -15,10 +15,10 @@ export const Actions: React.FC<ActionsProps> = ({ comic }) => {
         <button className="hover:bg-accent-warm mb-3 cursor-pointer bg-black p-3 text-white">
           🤍 Add to Favorites
         </button>
-        <button className="border-ink hover:bg-accent-soft hover:border-accent mb-3 cursor-pointer border-2 p-3 hover:border">
+        <button className="border-ink hover:bg-accent-soft hover:border-accent mb-3 cursor-pointer border-2 p-3">
           📥 Download Image
         </button>
-        <button className="border-ink hover:bg-accent-soft hover:border-accent mb-3 cursor-pointer border-2 p-3 hover:border">
+        <button className="border-ink hover:bg-accent-soft hover:border-accent mb-3 cursor-pointer border-2 p-3">
           🔗 Copy Link
         </button>
       </div>

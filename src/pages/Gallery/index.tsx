@@ -3,6 +3,7 @@ import { Filters } from "./Filters";
 import comicData from "../../data/comics-data.json";
 import { Panel } from "./Panel";
 import { Link } from "react-router";
+import { useFavorites } from "../../hooks/useFavorites";
 
 export type Comic = {
   id: number;
@@ -24,10 +25,7 @@ export default function Gallery({ searchQuery }: GalleryProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [selectedFilters, setSelectedFilters] = useState(["All"]);
-  const [favoriteIds, setFavoriteIds] = useState<number[]>(() => {
-    const stored = localStorage.getItem("favorites");
-    return stored ? JSON.parse(stored) : [];
-  });
+  const { favoriteIds, toggleFavorite } = useFavorites();
 
   useEffect(() => {
     setTimeout(() => {
@@ -55,21 +53,6 @@ export default function Gallery({ searchQuery }: GalleryProps) {
       return updated.length === 0 ? ["All"] : updated;
     });
   }, []);
-
-  const toggleFavorite = (id: number) => {
-    setFavoriteIds((prev) => {
-      const next = prev.includes(id)
-        ? prev.filter((favoriteId) => favoriteId !== id)
-        : [...prev, id];
-      localStorage.setItem("favorites", JSON.stringify(next));
-
-      if (!prev.includes(id)) {
-        localStorage.setItem("lastAdded", new Date().toISOString());
-      }
-
-      return next;
-    });
-  };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error fetching comics</p>;

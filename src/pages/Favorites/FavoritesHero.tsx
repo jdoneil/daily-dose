@@ -1,5 +1,5 @@
 import React from "react";
-import type { Comic } from "../Gallery/Gallery";
+import type { Comic } from "../Gallery";
 
 type HeroProps = {
   favorites: Comic[];

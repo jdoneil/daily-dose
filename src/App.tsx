@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
-import Gallery from "./pages/Gallery/Gallery";
-import Details from "./pages/Details/Details";
-import Favorites from "./pages/Favorites/Favorites";
+import Gallery from "./pages/Gallery";
+import Details from "./pages/Details";
+import Favorites from "./pages/Favorites";
 import Header from "./components/Header";
 import { Footer } from "./components/Footer";
 

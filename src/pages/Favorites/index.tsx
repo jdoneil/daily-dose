@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import FavoritesHero from "./FavoritesHero";
 import { SortOptions } from "./SortOptions";
 import comicData from "../../data/comics-data.json";
-import type { Comic } from "../Gallery/Gallery";
+import type { Comic } from "../Gallery";
 import FavoritesCard from "./FavoritesCard";
 
 const Favorites: React.FC = () => {

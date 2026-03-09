@@ -1,5 +1,5 @@
 import React from "react";
-import type { Comic } from "./Gallery";
+import type { Comic } from ".";
 
 interface PanelProps {
   comic: Comic;

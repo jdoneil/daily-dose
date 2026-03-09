@@ -1,4 +1,4 @@
-import type { Comic } from "../Gallery/Gallery";
+import type { Comic } from "../Gallery";
 
 type FavoritesCardProps = {
   comic: Comic;

@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { Filters } from "./Filters";
 import comicData from "../../data/comics-data.json";
+import { Panel } from "./Panel";
+import { Link } from "react-router";
 
 export type Comic = {
   id: number;
@@ -20,7 +22,7 @@ type GalleryProps = {
 export default function Gallery({ searchQuery }: GalleryProps) {
   const [comics, setComics] = useState<Comic[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
   const [selectedFilters, setSelectedFilters] = useState(["All"]);
   const [favoriteIds, setFavoriteIds] = useState<number[]>(() => {
     const stored = localStorage.getItem("favorites");
@@ -29,8 +31,12 @@ export default function Gallery({ searchQuery }: GalleryProps) {
 
   useEffect(() => {
     setTimeout(() => {
-      setLoading(false);
-      setComics([...comicData.comics]);
+      try {
+        setComics([...comicData.comics]);
+        setLoading(false);
+      } catch (error: unknown) {
+        setError(error instanceof Error ? error.message : String(error));
+      }
     }, 1000);
   }, []);
 
@@ -66,7 +72,7 @@ export default function Gallery({ searchQuery }: GalleryProps) {
   };
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error</p>;
+  if (error) return <p>Error fetching comics</p>;
 
   return (
     <>
@@ -87,34 +93,13 @@ export default function Gallery({ searchQuery }: GalleryProps) {
                   .includes(searchQuery.toLowerCase())),
           )
           .map((comic) => (
-            <div
-              key={comic.id}
-              className="comic-card border-ink flex cursor-pointer flex-col border-2 bg-white transition-all duration-300"
-            >
-              <img
-                className="border-ink border-b-2"
-                src={comic.imageUrl}
-                alt={comic.imageAlt}
-              ></img>
-              <div className="bg-paper flex flex-1 flex-col px-2 py-2">
-                <p className="flex-1">{comic.caption}</p>
-                <div className="my-4 flex items-center justify-between text-xs uppercase">
-                  <div className="flex max-w-[80%] gap-2 overflow-clip">
-                    {comic.tags?.map((tag) => (
-                      <span key={tag} className="bg-accent-soft text-ink p-2">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <button
-                    className="mr-2 cursor-pointer text-xl transition-transform duration-200 hover:scale-125"
-                    onClick={() => toggleFavorite(comic.id)}
-                  >
-                    {favoriteIds.includes(comic.id) ? "❤️" : "🤍"}
-                  </button>
-                </div>
-              </div>
-            </div>
+            <Link to={`/comic/${comic.id}`}>
+              <Panel
+                comic={comic}
+                toggleFavorite={toggleFavorite}
+                favoriteIds={favoriteIds}
+              />
+            </Link>
           ))}
       </div>
     </>

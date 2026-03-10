@@ -22,6 +22,11 @@ const mobileNavItems = [
 export const Footer: React.FC = () => {
   const navigate = useNavigate();
 
+  const handleRandomComic = () => {
+    navigate(getRandomComicLink());
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
       {/* Desktop Footer */}
@@ -37,7 +42,7 @@ export const Footer: React.FC = () => {
             <button
               key={navItem.caption}
               type="button"
-              onClick={() => navigate(getRandomComicLink())}
+              onClick={handleRandomComic}
               className="hover:text-accent-warm flex flex-1 cursor-pointer flex-col items-center justify-center hover:underline"
             >
               <span className="text-2xl">{navItem.emoji}</span>

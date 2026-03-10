@@ -16,7 +16,7 @@ export const Filters: React.FC<FiltersProps> = ({
         {allFilters.map((filter) => {
           return (
             <div
-              className={`mr-4 cursor-pointer border px-4 py-2 text-sm whitespace-nowrap md:text-base ${
+              className={`mr-4 cursor-pointer border px-4 py-2 text-sm whitespace-nowrap hover:border-red-200 hover:bg-red-200 md:text-base ${
                 selectedFilters.includes(filter)
                   ? "border-accent bg-red-200"
                   : "border-gray-300"

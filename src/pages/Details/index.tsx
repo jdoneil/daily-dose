@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import comicData from "../../data/comics-data.json";
 import type { Comic } from "../Gallery";
 import { FeaturedComic } from "./FeaturedComic";
@@ -11,9 +11,15 @@ import { useFavorites } from "../../hooks/useFavorites";
 
 const Details: React.FC = () => {
   const { id: comicId } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const [comic, setComic] = useState<Comic | null>(null);
   const [loading, setLoading] = useState(true);
   const { favoriteIds, toggleFavorite } = useFavorites();
+
+  const handleRandomComic = () => {
+    navigate(getRandomComicLink());
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   useEffect(() => {
     const featured = comicData.comics.find(
@@ -66,11 +72,12 @@ const Details: React.FC = () => {
                 </button>
               </Link>
             </div>
-            <Link to={getRandomComicLink()}>
-              <button className="bg-accent-warm mt-4 flex w-full cursor-pointer items-center justify-center py-4 text-white hover:bg-black">
-                🎲 Random Comic
-              </button>
-            </Link>
+            <button
+              onClick={handleRandomComic}
+              className="bg-accent-warm mt-4 flex w-full cursor-pointer items-center justify-center py-4 text-white hover:bg-black"
+            >
+              🎲 Random Comic
+            </button>
           </div>
         </div>
       </div>

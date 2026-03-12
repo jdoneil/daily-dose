@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { getRandomComicLink } from "../utils/randomComicLink";
 
 const mobileNavItems = [
   {
@@ -20,11 +20,12 @@ const mobileNavItems = [
 ];
 
 export const Footer: React.FC = () => {
-  const [randomComicLink, setRandomComicLink] = useState<string>("");
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    setRandomComicLink(`/comic/${Math.floor(Math.random() * 30) + 1}`);
-  }, []);
+  const handleRandomComic = () => {
+    navigate(getRandomComicLink());
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <>
@@ -36,20 +37,34 @@ export const Footer: React.FC = () => {
       </footer>
       {/* Mobile Footer */}
       <footer className="sticky bottom-0 flex justify-around border-t-2 border-black bg-white py-6 md:hidden">
-        {mobileNavItems.map((navItem) => (
-          <Link
-            to={
-              navItem.caption === "Random" ? randomComicLink : `${navItem.link}`
-            }
-          >
-            <div className="hover:text-accent-warm flex flex-1 flex-col items-center justify-center hover:underline">
+        {mobileNavItems.map((navItem) =>
+          navItem.caption === "Random" ? (
+            <button
+              key={navItem.caption}
+              type="button"
+              onClick={handleRandomComic}
+              className="hover:text-accent-warm flex flex-1 cursor-pointer flex-col items-center justify-center hover:underline"
+            >
               <span className="text-2xl">{navItem.emoji}</span>
               <span className="text-xs font-bold text-gray-600 uppercase">
                 {navItem.caption}
               </span>
-            </div>
-          </Link>
-        ))}
+            </button>
+          ) : (
+            <Link
+              key={navItem.caption}
+              to={`${navItem.link}`}
+              className="flex flex-1"
+            >
+              <div className="hover:text-accent-warm flex flex-1 flex-col items-center justify-center hover:underline">
+                <span className="text-2xl">{navItem.emoji}</span>
+                <span className="text-xs font-bold text-gray-600 uppercase">
+                  {navItem.caption}
+                </span>
+              </div>
+            </Link>
+          ),
+        )}
       </footer>
     </>
   );

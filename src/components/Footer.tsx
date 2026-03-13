@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
       {/* Desktop Footer */}
       <footer className="mt-12 hidden items-center justify-center bg-black py-6 md:flex">
         <span className="text-paper">
-          Showing 6 of 247 comics • Created with ❤️ for Asher Perlman fans{" "}
+          Created with ❤️ for Asher Perlman fans{" "}
         </span>
       </footer>
       {/* Mobile Footer */}

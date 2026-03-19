@@ -1,73 +1,83 @@
-# React + TypeScript + Vite
+# Daily Perlman
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A comic gallery web app built with React, TypeScript, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+The app lets you browse comics, filter and search them, view full details, and save favorites locally.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- Browse comics in a responsive gallery.
+- Filter comics by tags.
+- Search comics by caption from the header search box.
+- View comic detail pages with previous/next/random navigation.
+- Save and remove favorites using local storage.
+- Sort favorites by most recent, most viewed, or alphabetical.
+- Use loading skeletons on Gallery and Favorites pages to reduce layout shift.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React 19
+- TypeScript
+- Vite
+- React Router
+- Tailwind CSS v4
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js 20+ (or current LTS)
+- npm
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Install
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Run in development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Then open the local URL shown in your terminal (usually `http://localhost:5173`).
+
+## Scripts
+
+- `npm run dev` — Start Vite dev server.
+- `npm run build` — Type-check and build for production.
+- `npm run preview` — Preview the production build locally.
+- `npm run lint` — Run ESLint.
+
+## Routes
+
+- `/` — Gallery page
+- `/comic/:id` — Comic details page
+- `/favorites` — Favorites page
+
+## Data and State
+
+- Comic data is loaded from `src/data/comics-data.json`.
+- Favorites are persisted in `localStorage` under:
+  - `favorites` (array of comic ids)
+  - `lastAdded` (ISO date string)
+
+## Project Structure
+
+```text
+src/
+  components/      # Shared UI components
+  data/            # Static comic data
+  hooks/           # Reusable hooks (favorites state)
+  pages/
+    Gallery/       # Gallery page + filters + skeleton
+    Details/       # Comic details page
+    Favorites/     # Favorites page + controls + skeleton
+  utils/           # Utility helpers
+```
+
+## Notes
+
+- This project currently uses mock loading (`setTimeout`) for loading states.
+- Selected favorites export is scaffolded but not fully implemented.

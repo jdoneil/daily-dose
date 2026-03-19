@@ -4,6 +4,7 @@ import comicData from "../../data/comics-data.json";
 import { Panel } from "./Panel";
 import { Link } from "react-router";
 import { useFavorites } from "../../hooks/useFavorites";
+import { GallerySkeleton } from "./GallerySkeleton";
 
 export type Comic = {
   id: number;
@@ -54,7 +55,7 @@ export default function Gallery({ searchQuery }: GalleryProps) {
     });
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <GallerySkeleton />;
   if (error) return <p>Error fetching comics</p>;
 
   return (
@@ -76,7 +77,7 @@ export default function Gallery({ searchQuery }: GalleryProps) {
                   .includes(searchQuery.toLowerCase())),
           )
           .map((comic) => (
-            <Link to={`/comic/${comic.id}`}>
+            <Link key={comic.id} to={`/comic/${comic.id}`}>
               <Panel
                 comic={comic}
                 toggleFavorite={toggleFavorite}

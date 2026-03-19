@@ -27,13 +27,6 @@ const Details: React.FC = () => {
         <FeaturedComic comic={comic} favoriteIds={favoriteIds} />
       </div>
       <div className="flex flex-col gap-6 font-serif sm:col-span-1">
-        <Actions
-          comic={comic}
-          favoriteIds={favoriteIds}
-          toggleFavorite={toggleFavorite}
-        />
-        <Share comic={comic} />
-        <ComicDetails comic={comic} />
         <div className="border-ink border-2 bg-white px-6 py-6 text-sm font-bold">
           <div className="flex justify-between gap-2">
             <Link
@@ -68,6 +61,13 @@ const Details: React.FC = () => {
             🎲 Random Comic
           </button>
         </div>
+        <Actions
+          comic={comic}
+          favoriteIds={favoriteIds}
+          toggleFavorite={toggleFavorite}
+        />
+        <ComicDetails comic={comic} />
+        <Share comic={comic} />
       </div>
     </div>
   );

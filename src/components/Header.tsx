@@ -34,7 +34,7 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="search-box relative">
               <input
                 type="text"
-                className="bg-paper relative mr-4 w-70 border-2 px-4 py-1"
+                className="bg-paper relative mr-4 w-70 border-2 px-4 py-2"
                 placeholder="Search comics..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}

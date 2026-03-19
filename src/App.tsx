@@ -11,7 +11,6 @@ import { Footer } from "./components/Footer";
 // Search for duped logic and use hooks
 // Add animations
 // Add backend
-// Should search exist on routes other than main?
 // infinite scroll?
 
 function App() {

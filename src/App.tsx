@@ -6,14 +6,6 @@ import Favorites from "./pages/Favorites";
 import Header from "./components/Header";
 import { Footer } from "./components/Footer";
 
-//TODO
-// Add Skeleton
-// Search for duped logic and use hooks
-// Add animations
-// Add backend
-// Should search exist on routes other than main?
-// infinite scroll?
-
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
   return (

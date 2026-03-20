@@ -7,8 +7,8 @@ interface ShareProps {
 
 export const Share: React.FC<ShareProps> = ({ comic }) => {
   const handleShare = async (platform: string) => {
-    const shareUrl = comic.url || window.location.href;
-    const shareText = `Check out: ${comic.title}`;
+    const shareUrl = comic.imageUrl || window.location.href;
+    const shareText = `Check out: Asher Perlman!`;
 
     switch (platform) {
       case "twitter":

@@ -5,6 +5,7 @@ import comicData from "../../data/comics-data.json";
 import type { Comic } from "../Gallery";
 import FavoritesCard from "./FavoritesCard";
 import { useFavorites } from "../../hooks/useFavorites";
+import FavoritesSkeleton from "./FavoritesSkeleton";
 
 const Favorites: React.FC = () => {
   const [comics, setComics] = useState<Comic[]>([]);
@@ -62,7 +63,7 @@ const Favorites: React.FC = () => {
     });
   }, [sortedComics, selected]);
 
-  if (loading) return <h1>Loading Favorites...</h1>;
+  if (loading) return <FavoritesSkeleton />;
 
   return (
     <>
@@ -76,6 +77,7 @@ const Favorites: React.FC = () => {
       <div className="mx-auto grid max-w-360 grid-cols-1 gap-4 px-4 py-4 sm:grid-cols-2 lg:grid-cols-3">
         {sortedComics.map((comic) => (
           <FavoritesCard
+            key={comic.id}
             comic={comic}
             toggleFavorite={toggleFavorite}
             favoriteIds={favoriteIds}

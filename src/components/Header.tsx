@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router";
+import React from "react";
+import { Link, useLocation, useNavigate } from "react-router";
+import { getRandomComicLink } from "../utils/randomComicLink";
 
 type HeaderProps = {
   searchQuery: string;
@@ -10,11 +11,14 @@ export const Header: React.FC<HeaderProps> = ({
   searchQuery,
   setSearchQuery,
 }) => {
-  const [randomComicLink, setRandomComicLink] = useState<string>("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isGalleryRoute = location.pathname === "/";
 
-  useEffect(() => {
-    setRandomComicLink(`/comic/${Math.floor(Math.random() * 30) + 1}`);
-  }, []);
+  const handleRandomComic = () => {
+    navigate(getRandomComicLink());
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <header className="sticky border-b-2">
@@ -26,30 +30,32 @@ export const Header: React.FC<HeaderProps> = ({
           </h1>
         </Link>
         <div className="flex items-center">
-          <div className="search-box relative">
-            <input
-              type="text"
-              className="bg-paper relative mr-4 w-70 border-2 px-4 py-1"
-              placeholder="Search comics..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <span className="absolute top-1/2 right-6 -translate-y-1/2">
-              🔍
-            </span>
-          </div>
+          {isGalleryRoute && (
+            <div className="search-box relative">
+              <input
+                type="text"
+                className="bg-paper relative mr-4 w-70 border-2 px-4 py-2"
+                placeholder="Search comics..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              <span className="absolute top-1/2 right-6 -translate-y-1/2">
+                🔍
+              </span>
+            </div>
+          )}
           <Link
             to={"/favorites"}
-            className="text-paper bg-ink mr-4 hidden px-6 py-3 font-bold whitespace-nowrap sm:inline-block"
+            className="text-paper bg-ink hover:bg-accent mr-4 hidden px-6 py-3 font-bold whitespace-nowrap sm:inline-block"
           >
             ⭐ Favorites
           </Link>
-          <Link
-            to={randomComicLink}
-            className="text-paper bg-ink hidden px-6 py-3 font-bold whitespace-nowrap sm:inline-block"
+          <button
+            onClick={handleRandomComic}
+            className="text-paper bg-ink hover:bg-accent hidden cursor-pointer px-6 py-3 font-bold whitespace-nowrap sm:inline-block"
           >
             🎲 Random
-          </Link>
+          </button>
         </div>
       </div>
       {/*Mobile Header*/}
@@ -57,20 +63,22 @@ export const Header: React.FC<HeaderProps> = ({
         <h1 className="mb-4 font-serif text-2xl font-bold">
           Daily <span className="text-accent">Perlman</span>
         </h1>
-        <div className="flex items-center">
-          <div className="search-box relative w-full">
-            <input
-              type="text"
-              className="bg-paper relative mr-4 w-full border-2 px-4 py-2"
-              placeholder="Search comics..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <span className="absolute top-1/2 right-6 -translate-y-1/2">
-              🔍
-            </span>
+        {isGalleryRoute && (
+          <div className="flex items-center">
+            <div className="search-box relative w-full">
+              <input
+                type="text"
+                className="bg-paper relative mr-4 w-full border-2 px-4 py-2"
+                placeholder="Search comics..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              <span className="absolute top-1/2 right-6 -translate-y-1/2">
+                🔍
+              </span>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </header>
   );

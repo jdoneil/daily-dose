@@ -1,6 +1,6 @@
 # Daily Perlman
 
-A comic gallery web app built with React + TypeScript, Vite, React-Router, and Tailwind CSS.
+A responsive comic gallery built with React + TypeScript, Vite, React-Router, and Tailwind CSS.
 
 The app lets you browse comics, filter and search them, view full details, and save favorites locally.
 

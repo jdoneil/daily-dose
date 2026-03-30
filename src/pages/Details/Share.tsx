@@ -5,30 +5,7 @@ interface ShareProps {
   comic: Comic;
 }
 
-export const Share: React.FC<ShareProps> = ({ comic }) => {
-  const handleShare = async (platform: string) => {
-    const shareUrl = comic.imageUrl || window.location.href;
-    const shareText = `Check out: Asher Perlman!`;
-
-    switch (platform) {
-      case "twitter":
-        window.open(
-          `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`,
-          "_blank",
-        );
-        break;
-      case "facebook":
-        window.open(
-          `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
-          "_blank",
-        );
-        break;
-      case "copy":
-        navigator.clipboard.writeText(shareUrl);
-        break;
-    }
-  };
-
+export const Share: React.FC<ShareProps> = () => {
   return (
     <div className="border-ink border-2 bg-white px-6 py-12">
       <h3 className="border-b border-gray-300 pb-4 text-lg font-bold">Share</h3>

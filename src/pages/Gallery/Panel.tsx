@@ -18,7 +18,7 @@ export const Panel: React.FC<PanelProps> = ({
       className="comic-card border-ink flex cursor-pointer flex-col border-2 bg-white transition-all duration-300"
     >
       <img
-        className="border-ink aspect-4/3 w-full border-b-2 object-cover"
+        className="border-ink bg-cream aspect-4/3 w-full border-b-2 object-contain"
         src={comic.imageUrl}
         alt={comic.imageAlt}
       ></img>

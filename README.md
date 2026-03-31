@@ -8,6 +8,8 @@ This project was built strictly as a personal project with no intention of comme
 
 Everything is done client side here. Comics are loaded from local json. Favorited comics are thrown in localStorage.
 
+[See the live site here](https://daily-dose-f48s.vercel.app/)
+
 ## Tech Stack
 
 - React 19
